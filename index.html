@@ -8,15 +8,16 @@
     <style>
         :root { --primary-color: #ff0000; --bg-color: #050505; --card-bg: #111111; }
         body { font-family: 'Oswald', sans-serif; background: var(--bg-color); color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
-        .container { background: var(--card-bg); padding: 30px; border-radius: 12px; width: 100%; max-width: 450px; border: 1px solid #222; box-shadow: 0 0 30px rgba(255, 0, 0, 0.3); text-align: center; }
-        .welcome-text { font-size: 28px; font-weight: 700; color: var(--primary-color); text-transform: uppercase; margin-bottom: 5px; }
-        input, select { width: 100%; padding: 14px; margin: 10px 0; border-radius: 4px; border: 1px solid #333; background: #000; color: white; box-sizing: border-box; font-family: sans-serif; }
-        .rules-box { background: rgba(255, 0, 0, 0.05); padding: 15px; border-radius: 5px; text-align: left; margin: 20px 0; border: 1px solid rgba(255, 0, 0, 0.2); font-family: sans-serif; }
-        .checkbox-container { display: flex; align-items: center; gap: 10px; margin: 20px 0; font-size: 14px; cursor: pointer; text-align: left; font-family: sans-serif; color: #bbb; }
+        .container { background: var(--card-bg); padding: 30px; border-radius: 10px; width: 100%; max-width: 450px; border: 1px solid #222; box-shadow: 0 0 25px rgba(255, 0, 0, 0.3); text-align: center; }
+        .welcome-text { font-size: 28px; font-weight: 700; color: var(--primary-color); text-transform: uppercase; margin-bottom: 20px; }
+        input, select { width: 100%; padding: 14px; margin: 10px 0; border-radius: 4px; border: 1px solid #333; background: #000; color: white; box-sizing: border-box; font-family: sans-serif;}
+        .rules-box { background: rgba(255, 0, 0, 0.05); padding: 15px; border-radius: 5px; text-align: left; margin: 20px 0; border: 1px solid rgba(255, 0, 0, 0.2); font-family: sans-serif;}
+        .checkbox-container { display: flex; align-items: center; gap: 10px; margin: 20px 0; font-size: 14px; cursor: pointer; text-align: left; font-family: sans-serif;}
         button { width: 100%; padding: 16px; background: #222; color: #555; border: none; border-radius: 5px; font-weight: bold; font-size: 18px; cursor: not-allowed; transition: 0.4s; text-transform: uppercase; }
         button.active { background: var(--primary-color); color: white; cursor: pointer; box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); }
         #thankYouScreen { display: none; animation: fadeIn 0.8s ease-in-out; }
-        .group-btn { display: inline-block; background: #25D366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 25px; font-family: sans-serif; transition: 0.3s; }
+        .group-btn { display: inline-block; background: #25D366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 20px; font-family: sans-serif; transition: 0.3s; }
+        .group-btn:hover { background: #1da851; transform: scale(1.05); }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
@@ -24,44 +25,42 @@
 
 <div class="container" id="formContainer">
     <div class="welcome-text">WELCOME TO SAVAGE GUNNERS</div>
-    
-    <form id="recruitmentForm" action="https://formspree.io/f/mqebjvql" method="POST">
-        <input type="text" id="name" name="Name" placeholder="আপনার আসল নাম" required>
-        <input type="text" id="ign" name="IGN" placeholder="In-game Name (IGN)" required>
-        <input type="text" id="uid" name="UID" placeholder="Game UID" required>
-        
-        <select id="role" name="Role" required>
-            <option value="" disabled selected>আপনার Role সিলেক্ট করুন</option>
-            <option value="Rusher">Rusher ⚡</option>
-            <option value="Sniper">Sniper 🎯</option>
-            <option value="Assaulter">Assaulter ⚔️</option>
-            <option value="IGL">IGL 🧠</option>
-            <option value="Support">Support 🛡️</option>
-        </select>
-
-        <div class="rules-box">
-            <h4 style="margin:0; color: var(--primary-color);">🚨 TEAM RULES:</h4>
-            <p style="font-size: 13px; color: #ccc; margin: 5px 0;">একটিভ থাকতে হবে, পার্মানেন্ট হতে হবে এবং সম্মান বজায় রাখতে হবে।</p>
-        </div>
-
-        <label class="checkbox-container">
-            <input type="checkbox" id="terms" onclick="toggleBtn()"> 
-            আমি সব নিয়ম মেনে চলতে একমত।
-        </label>
-
-        <button type="submit" id="submitBtn" disabled>SUBMIT APPLICATION</button>
-    </form>
+    <input type="text" id="name" placeholder="আপনার আসল নাম" required>
+    <input type="text" id="ign" placeholder="In-game Name (IGN)" required>
+    <input type="text" id="uid" placeholder="Game UID" required>
+    <select id="role">
+        <option value="" disabled selected>আপনার Role সিলেক্ট করুন</option>
+        <option value="Rusher">Rusher ⚡</option>
+        <option value="Sniper">Sniper 🎯</option>
+        <option value="Assaulter">Assaulter ⚔️</option>
+        <option value="IGL">IGL 🧠</option>
+        <option value="Support">Support 🛡️</option>
+    </select>
+    <div class="rules-box">
+        <h4 style="margin:0 0 10px 0; color: var(--primary-color);">⚠️ RULES:</h4>
+        <ul style="padding-left: 20px; margin: 0; font-size: 13px; color: #bbb;">
+            <li>সর্বদা একটিভ থাকতে হবে।</li>
+            <li>পার্মানেন্ট মেম্বার হতে হবে।</li>
+        </ul>
+    </div>
+    <label class="checkbox-container">
+        <input type="checkbox" id="terms" onclick="toggleButton()"> 
+        আমি সব রুলস মেনে জয়েন করতে একমত।
+    </label>
+    <button id="submitBtn" onclick="submitForm()" disabled>SUBMIT FORM</button>
 </div>
 
 <div class="container" id="thankYouScreen">
-    <div style="font-size: 60px; color: #25D366;">✔</div>
-    <div class="welcome-text">SUCCESSFUL!</div>
-    <p style="font-family: sans-serif; color: #ccc;">আপনার আবেদনটি আমাদের ইমেইলে এবং হোয়াটসঅ্যাপে পাঠানো হয়েছে।</p>
-    <a href="https://chat.whatsapp.com/JiCisZ6oydk3Plhijr25Jq" class="group-btn">JOIN OFFICIAL GROUP</a>
+    <div style="font-size: 50px; color: #25D366;">✔</div>
+    <div style="font-size: 24px; color: #ff0000; margin-top: 10px;">REGISTRATION COMPLETE!</div>
+    <p style="font-family: sans-serif; color: #ccc; margin-top: 15px;">
+        Savage Gunners-এ জয়েন করার জন্য ধন্যবাদ। নিচের লিঙ্কে ক্লিক করে আমাদের টিমের WhatsApp গ্রুপে জয়েন করুন।
+    </p>
+    <a href="https://chat.whatsapp.com/JiCisZ6oydk3Plhijr25Jq" class="group-btn" target="_blank">JOIN WHATSAPP GROUP</a>
 </div>
 
 <script>
-    function toggleBtn() {
+    function toggleButton() {
         const checkbox = document.getElementById('terms');
         const btn = document.getElementById('submitBtn');
         if(checkbox.checked) {
@@ -73,44 +72,28 @@
         }
     }
 
-    const form = document.getElementById('recruitmentForm');
-    form.onsubmit = async (e) => {
-        e.preventDefault();
-        const submitBtn = document.getElementById('submitBtn');
-        submitBtn.innerText = "SENDING...";
-        submitBtn.disabled = true;
-
-        // Form details variable e niye asha
+    function submitForm() {
         const name = document.getElementById('name').value;
         const ign = document.getElementById('ign').value;
+        const uid = document.getElementById('uid').value;
         const role = document.getElementById('role').value;
-        const myWhatsApp = "8801614352250"; // <-- EKHANE APNAR NUMBER DEN
 
-        // WhatsApp Link Toiri
-        const waMsg = `*SAVAGE GUNNERS RECRUIT*%0AName: ${name}%0AIGN: ${ign}%0ARole: ${role}`;
-        const waUrl = `https://api.whatsapp.com/send?phone=${myWhatsApp}&text=${waMsg}`;
-
-        // 1. Prothome Formspree-te data pathabe
-        const formData = new FormData(form);
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-            // 2. Data pathano sesh hole WhatsApp open korbe
-            window.open(waUrl, '_blank'); 
-
-            // 3. GitHub page-ei Thank you screen dekhabe
-            document.getElementById('formContainer').style.display = 'none';
-            document.getElementById('thankYouScreen').style.display = 'block';
-        } else {
-            alert("API Error! Formspree setup check korun.");
-            submitBtn.innerText = "SUBMIT APPLICATION";
-            submitBtn.disabled = false;
+        if(!name || !ign || !uid || !role) {
+            alert("সবগুলো বক্স ফিলাপ করুন!");
+            return;
         }
-    };
+
+        // WhatsApp Personal Notification (Jodi apni message pete chan)
+        const myNumber = "8801XXXXXXXXX"; // Eikhane apnar personal number boshan
+        const message = `*NEW RECRUIT:*%0A*Name:* ${name}%0A*IGN:* ${ign}%0A*UID:* ${uid}%0A*Role:* ${role}`;
+        
+        // Eita click korle apnar kache message ashbe
+        window.open(`https://api.whatsapp.com/send?phone=${myNumber}&text=${message}`, '_blank');
+
+        // Form hide kore Thank You screen show kora
+        document.getElementById('formContainer').style.display = 'none';
+        document.getElementById('thankYouScreen').style.display = 'block';
+    }
 </script>
 
 </body>
