@@ -3,33 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Savage Gunners - Join Us</title>
+    <title>Savage Gunners - Recruitment</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root { --primary-color: #ff0000; --bg-color: #050505; --card-bg: #111111; }
         body { font-family: 'Oswald', sans-serif; background: var(--bg-color); color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
-        .container { background: var(--card-bg); padding: 30px; border-radius: 12px; width: 100%; max-width: 450px; border: 1px solid #222; box-shadow: 0 0 30px rgba(255, 0, 0, 0.3); text-align: center; }
-        .welcome-text { font-size: 28px; font-weight: 700; color: var(--primary-color); text-transform: uppercase; margin-bottom: 5px; }
-        input, select { width: 100%; padding: 14px; margin: 10px 0; border-radius: 4px; border: 1px solid #333; background: #000; color: white; box-sizing: border-box; font-family: sans-serif; }
-        .rules-box { background: rgba(255, 0, 0, 0.05); padding: 15px; border-radius: 5px; text-align: left; margin: 20px 0; border: 1px solid rgba(255, 0, 0, 0.2); font-family: sans-serif; }
-        .checkbox-container { display: flex; align-items: center; gap: 10px; margin: 20px 0; font-size: 14px; cursor: pointer; text-align: left; font-family: sans-serif; color: #bbb; }
-        button { width: 100%; padding: 16px; background: #222; color: #555; border: none; border-radius: 5px; font-weight: bold; font-size: 18px; cursor: not-allowed; transition: 0.4s; text-transform: uppercase; }
-        button.active { background: var(--primary-color); color: white; cursor: pointer; box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); }
         
-        /* Success Message Styling */
+        .container { 
+            background: var(--card-bg); 
+            padding: 40px; 
+            border-radius: 15px; 
+            width: 100%; 
+            max-width: 450px; 
+            border: 1px solid #222; 
+            box-shadow: 0 0 35px rgba(255, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .welcome-text { font-size: 32px; font-weight: 700; color: var(--primary-color); text-transform: uppercase; margin-bottom: 10px; letter-spacing: 2px; }
+        .sub-title { color: #888; font-size: 14px; margin-bottom: 30px; text-transform: uppercase; }
+
+        input, select { 
+            width: 100%; padding: 15px; margin: 12px 0; border-radius: 5px; border: 1px solid #333; 
+            background: #000; color: white; box-sizing: border-box; font-family: 'Segoe UI', sans-serif;
+        }
+
+        .rules-box { 
+            background: rgba(255, 0, 0, 0.05); padding: 15px; border-radius: 8px; 
+            text-align: left; margin: 25px 0; border: 1px solid rgba(255, 0, 0, 0.3); 
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .checkbox-container { 
+            display: flex; align-items: center; gap: 12px; margin: 20px 0; 
+            font-size: 15px; cursor: pointer; text-align: left; font-family: 'Segoe UI', sans-serif; color: #ddd;
+        }
+
+        button { 
+            width: 100%; padding: 18px; background: #222; color: #555; border: none; 
+            border-radius: 5px; font-weight: bold; font-size: 18px; cursor: not-allowed; 
+            transition: 0.4s; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        button.active { 
+            background: var(--primary-color); color: white; cursor: pointer; 
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); 
+        }
+
         #thankYouScreen { display: none; animation: fadeIn 0.8s ease-in-out; }
-        .group-btn { display: inline-block; background: #25D366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 25px; font-family: sans-serif; transition: 0.3s; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
 <div class="container" id="formContainer">
     <div class="welcome-text">WELCOME TO SAVAGE GUNNERS</div>
-    <p style="color: #888; font-size: 13px; margin-bottom: 20px;">READY TO HUNT? FILL THE FORM.</p>
+    <div class="sub-title">Only the Strongest Survive</div>
     
     <form id="recruitmentForm" action="https://formspree.io/f/mqebjvql" method="POST">
-        <input type="text" name="Player Name" placeholder="আপনার আসল নাম" required>
+        <input type="text" name="Player_Name" placeholder="আপনার আসল নাম" required>
         <input type="text" name="IGN" placeholder="In-game Name (IGN)" required>
         <input type="text" name="UID" placeholder="Game UID" required>
         
@@ -43,17 +76,17 @@
         </select>
 
         <div class="rules-box">
-            <h4 style="margin:0; color: var(--primary-color);">🚨 TEAM RULES:</h4>
-            <ul style="padding-left: 18px; font-size: 13px; color: #ccc; margin: 10px 0;">
-                <li>পার্মানেন্ট খেলতে হবে।</li>
-                <li>একটিভ এবং রেসপনসিভ হতে হবে।</li>
-                <li>টিম ডিসিপ্লিন মেনে চলতে হবে।</li>
+            <h4 style="margin:0 0 10px 0; color: var(--primary-color);">📢 Savage Gunners Rules:</h4>
+            <ul style="padding-left: 20px; margin: 0; font-size: 14px; color: #bbb; line-height: 1.6;">
+                <li>পার্মানেন্ট এবং একটিভ থাকতে হবে।</li>
+                <li>টিমের ডিসিপ্লিন মেনে চলতে হবে।</li>
+                <li>অহেতুক গালিগালাজ করা যাবে না।</li>
             </ul>
         </div>
 
         <label class="checkbox-container">
             <input type="checkbox" id="terms" onclick="toggleBtn()"> 
-            আমি সব নিয়ম মেনে চলতে একমত।
+            আমি সব নিয়ম মেনে জয়েন করতে একমত।
         </label>
 
         <button type="submit" id="submitBtn" disabled>SUBMIT APPLICATION</button>
@@ -61,12 +94,13 @@
 </div>
 
 <div class="container" id="thankYouScreen">
-    <div style="font-size: 60px; color: #25D366;">✔</div>
-    <div class="welcome-text">THANK YOU!</div>
-    <p style="font-family: sans-serif; color: #ccc;">
-        Savage Gunners-এ জয়েন করার জন্য আপনাকে ধন্যবাদ। আপনার আবেদনটি আমাদের কাছে পৌঁছেছে।
+    <div style="font-size: 80px; color: #ff0000; margin-bottom: 20px;">✔</div>
+    <div class="welcome-text">SUCCESSFUL!</div>
+    <p style="font-family: 'Segoe UI', sans-serif; color: #ccc; line-height: 1.6; font-size: 18px;">
+        Savage Gunners-এ আপনার আবেদনটি জমা হয়েছে। <br><br>
+        আমাদের টিম লিডার আপনার তথ্যগুলো যাচাই করে খুব শীঘ্রই আপনার সাথে যোগাযোগ করবেন।
     </p>
-    <a href="https://chat.whatsapp.com/JiCisZ6oydk3Plhijr25Jq" class="group-btn">JOIN WHATSAPP GROUP</a>
+    <div style="margin-top: 30px; color: #555; font-size: 12px; text-transform: uppercase;">Stay Sharp. Stay Savage.</div>
 </div>
 
 <script>
@@ -100,7 +134,7 @@
             document.getElementById('formContainer').style.display = 'none';
             document.getElementById('thankYouScreen').style.display = 'block';
         } else {
-            alert("Oops! Kichu ekta vul hoyeche.");
+            alert("Oops! Submit kora somvob hoyni. Email verify korechen to?");
             submitBtn.innerText = "SUBMIT APPLICATION";
             submitBtn.disabled = false;
         }
